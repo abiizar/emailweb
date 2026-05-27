@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The 7 Day Glow Up System | Free Planner</title>
+  <!-- Google Fonts: DM Sans and Playfair Display -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --color-bg: #F4F3EF; /* Premium warm cream/ivory background */
+      --color-text-main: #1C1C1C;
+      --color-text-muted: #666666;
+      /* Perfect match for neon lime-green / chartreuse (#ADF842 or #B5F63D) */
+      --color-accent-lime: #B5F63D;
+      --color-accent-hover: #A4EB29;
+      --font-serif: 'Playfair Display', Georgia, serif;
+      --font-sans: 'DM Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--color-bg);
+      /* High-end textured watercolor/cotton paper background effect using SVG FeTurbulence noise overlay */
+      background-image: 
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.035'/%3E%3C/svg%3E"),
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.4) 0%, transparent 100%);
+      color: var(--color-text-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3vh 20px;
+    }
+
+    .container {
+      max-width: 800px;
+      width: 100%;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3vh;
+    }
+
+    /* --- Header Section (Top) --- */
+    .header-section {
+      margin-bottom: 0.5vh;
+    }
+
+    .headline-serif {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-style: italic;
+      font-weight: 500;
+      color: var(--color-text-main);
+      line-height: 1.15;
+      margin-bottom: 6px;
+    }
+
+    .headline-sans-bold {
+      font-family: var(--font-sans);
+      font-size: clamp(1.5rem, 3.8vw, 2.5rem);
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      color: var(--color-text-main);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .headline-sans-desc {
+      font-family: var(--font-sans);
+      font-size: clamp(0.95rem, 2vw, 1.25rem);
+      font-weight: 800; /* Bold lowercase subheadline */
+      letter-spacing: 0.02em;
+      color: var(--color-text-main);
+    }
+
+    /* --- Tablet Mockup (iPad landscape) --- */
+    .tablet-mockup {
+      width: 100%;
+      max-width: 600px; /* Highly optimized smaller max-width so it's not too large on any screen */
+      background: #000000;
+      border-radius: 28px;
+      padding: 14px;
+      /* Soft drop shadow exactly below bottom edge */
+      box-shadow: 
+        0 25px 50px -15px rgba(0, 0, 0, 0.25),
+        0 12px 25px -10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 1px rgba(255, 255, 255, 0.15);
+      position: relative;
+    }
+
+    /* Tablet Screen containing the absolute URL mockup */
+    .tablet-screen {
+      background-color: #FAFAF8;
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 16 / 11;
+      position: relative;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .mockup-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* --- Form Section (Bottom) --- */
+    .optin-form-container {
+      width: 100%;
+      max-width: 440px; /* Reduced from 480px for a more compact, passive look */
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 16px 20px;
+      font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+      font-weight: 500;
+      /* Muted semi-transparent light gray background exactly like original */
+      background-color: rgba(230, 230, 226, 0.45);
+      border: 1px solid rgba(28, 28, 28, 0.15);
+      border-radius: 9999px; /* Perfectly pill-shaped */
+      text-align: center;
+      font-family: var(--font-sans);
+      color: var(--color-text-main);
+      outline: none;
+      transition: all 0.2s ease;
+      box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+    }
+
+    .email-input:focus {
+      background-color: #FFFFFF;
+      border-color: rgba(28, 28, 28, 0.4);
+      box-shadow: 0 0 0 4px rgba(28, 28, 28, 0.04);
+    }
+
+    .email-input::placeholder {
+      /* Dark charcoal gray placeholder precisely matching */
+      color: #1C1C1C;
+      opacity: 0.9;
+    }
+
+    .cta-button {
+      width: 100%;
+      padding: 16px 24px;
+      font-size: clamp(0.95rem, 2vw, 1.15rem);
+      font-weight: 800; /* Bold sans-serif CTA font */
+      color: #111111;
+      background-color: var(--color-accent-lime);
+      border: none;
+      border-radius: 9999px; /* Perfectly pill-shaped */
+      cursor: pointer;
+      font-family: var(--font-sans);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+      box-shadow: 0 4px 15px rgba(181, 246, 61, 0.25);
+      transition: all 0.2s ease;
+    }
+
+    .cta-button:hover {
+      background-color: var(--color-accent-hover);
+      box-shadow: 0 6px 20px rgba(181, 246, 61, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .cta-button:active {
+      transform: translateY(0);
+    }
+
+    .info-text {
+      font-size: clamp(0.75rem, 1.5vw, 0.85rem);
+      color: #555555;
+      margin-top: 6px;
+      font-weight: 500;
+    }
+
+    /* Additional Responsive Height Constraint to prevent overflowing on short viewports */
+    @media (max-height: 700px) {
+      body {
+        padding: 10px;
+      }
+      .container {
+        gap: 1.5vh;
+      }
+      .tablet-mockup {
+        max-width: 440px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Header Section -->
+    <div class="header-section">
+      <h1 class="headline-serif">The 7 day Glow Up system</h1>
+      <h2 class="headline-sans-bold">FREE PLANNER</h2>
+      <p class="headline-sans-desc">...manage your weight and lifestyle...</p>
+    </div>
+
+    <!-- Tablet Mockup (iPad-style landscape with direct Web URL for deployment) -->
+    <div class="tablet-mockup">
+      <div class="tablet-screen">
+        <img class="mockup-image" src="https://snapnot-r2-worker.yumtive.workers.dev/get/1226eec5-9de6-4869-9cbf-4d9390b79bf2/1779850188015_pd27qa_The_7_day_Glow_Up_202605270948.webp" alt="The 7 Day Glow Up system FREE PLANNER">
+      </div>
+    </div>
+
+    <!-- Opt-in Form Section (Terintegrasi dengan MailerLite & Halaman Sukses Custom) -->
+    <!-- 
+      PENTING:
+      Ganti value pada "success_url" di bawah dengan URL publik/online dari file success.html Anda nanti (misalnya: https://namaweb.com/success.html).
+    -->
+    <form class="optin-form-container" action="https://assets.mailerlite.com/jsonp/2378511/forms/188602760764065411/subscribe" method="POST">
+      <!-- Standard MailerLite parameters -->
+      <input type="hidden" name="ml-submit" value="1">
+      <input type="hidden" name="anticsrf" value="true">
+      
+      <!-- Halaman Sukses Custom (Redirect setelah submit) -->
+      <!-- Menggunakan dynamic path relatif agar otomatis kompatibel dengan Vercel clean URL -->
+      <input type="hidden" name="success_url" value="/success">
+      
+      <!-- Input email menggunakan name="fields[email]" sesuai format standar MailerLite -->
+      <input type="email" name="fields[email]" class="email-input" placeholder="yourname@email.com" autocomplete="email" required>
+      
+      <button type="submit" class="cta-button">
+        Get My FREE Glow Up Planner &gt;
+      </button>
+      <p class="info-text">Enter your email above to receive your free download instantly.</p>
+    </form>
+
+  </div>
+
+</body>
+</html>
