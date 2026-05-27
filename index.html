@@ -234,9 +234,8 @@
       <input type="hidden" name="ml-submit" value="1">
       <input type="hidden" name="anticsrf" value="true">
       
-      <!-- Halaman Sukses Custom (Redirect setelah submit) -->
-      <!-- Menggunakan dynamic path relatif agar otomatis kompatibel dengan Vercel clean URL -->
-      <input type="hidden" name="success_url" value="/success">
+      <!-- Halaman Sukses Custom (Redirect setelah submit ke domain aviiro.tech) -->
+      <input type="hidden" name="success_url" value="https://www.aviiro.tech/success">
       
       <!-- Input email menggunakan name="fields[email]" sesuai format standar MailerLite -->
       <input type="email" name="fields[email]" class="email-input" placeholder="yourname@email.com" autocomplete="email" required>
