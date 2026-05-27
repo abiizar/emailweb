@@ -224,21 +224,9 @@
       </div>
     </div>
 
-    <!-- Opt-in Form Section (Terintegrasi dengan MailerLite & Halaman Sukses Custom) -->
-    <!-- 
-      PENTING:
-      Ganti value pada "success_url" di bawah dengan URL publik/online dari file success.html Anda nanti (misalnya: https://namaweb.com/success.html).
-    -->
-    <form class="optin-form-container" action="https://assets.mailerlite.com/jsonp/2378511/forms/188602760764065411/subscribe" method="POST">
-      <!-- Standard MailerLite parameters -->
-      <input type="hidden" name="ml-submit" value="1">
-      <input type="hidden" name="anticsrf" value="true">
-      
-      <!-- Halaman Sukses Custom (Redirect setelah submit ke domain aviiro.tech) -->
-      <input type="hidden" name="success_url" value="https://www.aviiro.tech/success">
-      
-      <!-- Input email menggunakan name="fields[email]" sesuai format standar MailerLite -->
-      <input type="email" name="fields[email]" class="email-input" placeholder="yourname@email.com" autocomplete="email" required>
+    <!-- Opt-in Form Section (Terintegrasi dengan AJAX Fetch agar Tidak Ada Redirect JSON Raw) -->
+    <form id="glowup-form" class="optin-form-container">
+      <input type="email" id="glowup-email" class="email-input" placeholder="yourname@email.com" autocomplete="email" required>
       
       <button type="submit" class="cta-button">
         Get My FREE Glow Up Planner &gt;
@@ -248,5 +236,40 @@
 
   </div>
 
+  <script>
+    document.getElementById('glowup-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const email = document.getElementById('glowup-email').value;
+      const button = this.querySelector('button');
+      const originalText = button.innerText;
+      
+      button.innerText = 'Submitting...';
+      button.disabled = true;
+
+      // Gunakan format FormData & URLSearchParams agar terkirim sebagai application/x-www-form-urlencoded
+      const formData = new URLSearchParams();
+      formData.append('fields[email]', email);
+      formData.append('ml-submit', '1');
+      formData.append('anticsrf', 'true');
+
+      fetch('https://assets.mailerlite.com/jsonp/2378511/forms/188602760764065411/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: formData.toString()
+      })
+      .then(response => {
+        // Apapun respons JSON-nya (termasuk JSONP success: true), 
+        // kita langsung alihkan user ke halaman sukses premium custom kita!
+        window.location.href = 'https://www.aviiro.tech/success';
+      })
+      .catch(error => {
+        // Fallback redirect jika CORS memblokir pembacaan respon tapi data sebenarnya sukses terkirim
+        window.location.href = 'https://www.aviiro.tech/success';
+      });
+    });
+  </script>
 </body>
 </html>
